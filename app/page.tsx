@@ -1,4 +1,6 @@
 import Link from "next/link";
+import MessageBoard from './components/MessageBoard'
+import Image from "next/image";
 
 const stats = [
   { value: "500+", label: "企业客户" },
@@ -78,53 +80,78 @@ export default function HomePage() {
         <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] glow-orb bg-violet-600/20" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <div className="max-w-4xl">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-sky-500/30 bg-sky-500/10 text-sky-400 text-sm font-medium mb-8">
-              <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
-              全新一代企业级 AI 平台现已上线
-            </div>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Text content */}
+            <div>
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-sky-500/30 bg-sky-500/10 text-sky-400 text-sm font-medium mb-8">
+                <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
+                全新一代企业级 AI 平台现已上线
+              </div>
 
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-tight mb-6">
-              <span className="text-white">引领</span>{" "}
-              <span className="bg-gradient-to-r from-sky-400 via-blue-400 to-violet-500 bg-clip-text text-transparent">
-                AI 革命
-              </span>
-              <br />
-              <span className="text-white">赋能</span>{" "}
-              <span className="bg-gradient-to-r from-violet-400 to-pink-400 bg-clip-text text-transparent">
-                无限未来
-              </span>
-            </h1>
-
-            <p className="text-xl text-slate-400 leading-relaxed mb-10 max-w-2xl">
-              NexusAI 提供企业级人工智能解决方案，从大模型训练到智能自动化，
-              帮助各行业企业加速 AI 转型，抢占数字化竞争先机。
-            </p>
-
-            <div className="flex flex-wrap gap-4 mb-16">
-              <Link
-                href="/contact"
-                className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-sky-500 to-violet-600 text-white font-semibold hover:opacity-90 active:scale-95 transition-all shadow-xl shadow-sky-500/25 text-base"
-              >
-                免费获取方案
-              </Link>
-              <Link
-                href="/services"
-                className="px-8 py-3.5 rounded-xl border border-slate-700 text-slate-300 font-semibold hover:border-sky-500/50 hover:text-white transition-all text-base"
-              >
-                了解服务 →
-              </Link>
-            </div>
-
-            {/* Trusted by */}
-            <p className="text-slate-500 text-sm mb-4">受到行业领军企业信赖</p>
-            <div className="flex flex-wrap gap-6 items-center">
-              {["中国平安", "招商银行", "比亚迪", "京东物流", "华为云"].map((name) => (
-                <span key={name} className="text-slate-500 text-sm font-medium tracking-wide">
-                  {name}
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-tight mb-6">
+                <span className="text-white">重新定义AI边界</span>{" "}
+                <span className="bg-gradient-to-r from-sky-400 via-blue-400 to-violet-500 bg-clip-text text-transparent">
+                  AI 革命
                 </span>
-              ))}
+                <br />
+                <span className="text-white">让未来提前到来</span>{" "}
+                <span className="bg-gradient-to-r from-violet-400 to-pink-400 bg-clip-text text-transparent">
+                  无限未来
+                </span>
+              </h1>
+
+              <p className="text-xl text-slate-400 leading-relaxed mb-10 max-w-2xl">
+                NexusAI 提供企业级人工智能解决方案，从大模型训练到智能自动化，
+                帮助各行业企业加速 AI 转型，抢占数字化竞争先机。
+              </p>
+
+              <div className="flex flex-wrap gap-4 mb-6">
+                <Link
+                  href="/contact"
+                  className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-sky-500 to-violet-600 text-white font-semibold hover:opacity-90 active:scale-95 transition-all shadow-xl shadow-sky-500/25 text-base"
+                >
+                  免费获取方案
+                </Link>
+                <Link
+                  href="/services"
+                  className="px-8 py-3.5 rounded-xl border border-slate-700 text-slate-300 font-semibold hover:border-sky-500/50 hover:text-white transition-all text-base"
+                >
+                  了解服务 →
+                </Link>
+              </div>
+
+              <div className="mb-16">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl border border-sky-500/40 text-sky-400 font-semibold hover:bg-sky-500/10 hover:border-sky-500/70 transition-all text-base"
+                >
+                  联系我们
+                </Link>
+              </div>
+
+              {/* Trusted by */}
+              <p className="text-slate-500 text-sm mb-4">受到行业领军企业信赖</p>
+              <div className="flex flex-wrap gap-6 items-center">
+                {["中国平安", "招商银行", "比亚迪", "京东物流", "华为云"].map((name) => (
+                  <span key={name} className="text-slate-500 text-sm font-medium tracking-wide">
+                    {name}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Hero image */}
+            <div className="relative hidden lg:flex justify-center items-center">
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-sky-500/10 to-violet-500/10 blur-2xl" />
+              <Image
+                src="/photo.png"
+                alt="AI 平台展示"
+                width={600}
+                height={500}
+                className="relative rounded-2xl object-cover w-full max-w-lg shadow-2xl shadow-sky-500/10"
+                priority
+              />
             </div>
           </div>
         </div>
@@ -261,6 +288,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      <MessageBoard />
     </>
   );
 }
