@@ -1,3 +1,4 @@
+import AiChat from './components/AiChat'
 import Link from "next/link";
 import MessageBoard from './components/MessageBoard'
 import Image from "next/image";
@@ -289,6 +290,7 @@ export default function HomePage() {
         </div>
       </section>
       <MessageBoard />
+      <AiChat />
     </>
   );
 }
